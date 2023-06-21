@@ -44,13 +44,14 @@ export const theme = {
 
   shadows: {
     boxShadow: "4px 2px 16px rgba(136, 165, 191, 0.48)",
+    cardShadow: "-2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23)",
     buttonShadow: "0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25)",
     hoverShadow:
       "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
   },
   breakpoints: {
-    mobile: "380px",
-    table: "800px",
-    desktop: "1440px",
+    mobile: "396px",
+    table: "808px",
+    desktop: "1204px",
   },
 };

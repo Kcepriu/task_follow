@@ -1,52 +1,22 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import HeaderTweets from "../HeaderTweets/HeaderTweets";
-import { ICard } from "../../types/typsCards";
-import { getCards } from "../../services/apiBackend";
-import { showErrorMessage } from "../../helpers/message";
 import Loader from "../Loader/Loader";
+import ListCards from "../ListCards/ListCards";
+import useCards from "../../hooks/useCards";
+import { WrapTwets } from "./Tweets.styled";
+import LoadMore from "../LoadMore/LoadMore";
 
 const Tweets: FC = () => {
-  const [cards, setCards] = useState<ICard[]>([]);
-  const [showLoad, setShowLoad] = useState(false);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    const load = async () => {
-      setShowLoad(true);
-      try {
-        const listCards = await getCards(controller);
-        setCards(listCards);
-      } catch (error) {
-        setCards([]);
-        if (!(error instanceof Error)) return;
-        if (error.name !== "CanceledError") {
-          console.log("Error fetch", error);
-          showErrorMessage("Error fetch shops");
-        }
-      } finally {
-        setShowLoad(false);
-      }
-    };
-
-    load();
-    return () => {
-      controller.abort();
-    };
-  }, []);
+  const { cards, showLoad, showLoadMore, setCurentPage } = useCards();
 
   return (
-    <>
+    <WrapTwets>
       <HeaderTweets />
-      <p>Cards</p>
-      {cards.length > 0 &&
-        cards.map((card) => {
-          return <p key={card.id}> {card.user}</p>;
-        })}
-      <p>Load more</p>
+      {cards.length > 0 && <ListCards cards={cards} />}
+      {showLoadMore && <LoadMore setCurentPage={setCurentPage} />}
 
       {showLoad && <Loader />}
-    </>
+    </WrapTwets>
   );
 };
 

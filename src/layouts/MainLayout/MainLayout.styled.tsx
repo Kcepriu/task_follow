@@ -15,6 +15,8 @@ export const Container = styled.div`
 
   @media screen and (min-width: ${(p) => p.theme.breakpoints.table}) {
     max-width: ${(p) => p.theme.breakpoints.table};
+    padding-left: ${(p) => p.theme.space[4]}px;
+    padding-right: ${(p) => p.theme.space[4]}px;
   }
 
   @media screen and (min-width: ${(p) => p.theme.breakpoints.desktop}) {
