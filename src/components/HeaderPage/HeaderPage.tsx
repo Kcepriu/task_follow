@@ -1,11 +1,12 @@
 import { FC } from "react";
 import MainNav from "../MainNav/MainNav";
+import { Header } from "./HeaderPage.styled";
 
 const HeaderPage: FC = () => {
   return (
-    <div>
+    <Header>
       <MainNav />
-    </div>
+    </Header>
   );
 };
 

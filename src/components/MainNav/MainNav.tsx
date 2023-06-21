@@ -1,18 +1,18 @@
 import { FC } from "react";
-import { NavLink } from "react-router-dom";
 import { nameRouters } from "../../constants/nameRouters";
+import { List, Link, Item } from "./MainNav.styled";
 
 const MainNav: FC = () => {
   return (
     <nav>
-      <ul>
-        <li>
-          <NavLink to={nameRouters.home}>Home</NavLink>
-        </li>
-        <li>
-          <NavLink to={nameRouters.tweets}>Tweets</NavLink>
-        </li>
-      </ul>
+      <List>
+        <Item>
+          <Link to={nameRouters.home}>Home</Link>
+        </Item>
+        <Item>
+          <Link to={nameRouters.tweets}>Tweets</Link>
+        </Item>
+      </List>
     </nav>
   );
 };
