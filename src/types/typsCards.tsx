@@ -6,3 +6,5 @@ export interface ICard {
   avatar: string;
   follow: boolean;
 }
+
+export type TypeFollow = "showAll" | "following" | "notFollowing";

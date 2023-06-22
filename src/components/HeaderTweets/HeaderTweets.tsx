@@ -3,8 +3,9 @@ import { useLocation } from "react-router-dom";
 import { HiArrowLeft } from "react-icons/hi";
 
 import { nameRouters } from "../../constants/nameRouters";
+import FilterCard from "../FilterCard/FilterCard";
 
-import { WrapHeaderTweets, LinkBack } from "./HeaderTweets.styled";
+import { WrapHeaderTweets, LinkBack, WrapFilter } from "./HeaderTweets.styled";
 
 const HeaderTweets: FC = () => {
   const location = useLocation();
@@ -16,6 +17,9 @@ const HeaderTweets: FC = () => {
         <HiArrowLeft size="24" />
         Go back
       </LinkBack>
+      <WrapFilter>
+        <FilterCard />
+      </WrapFilter>
     </WrapHeaderTweets>
   );
 };

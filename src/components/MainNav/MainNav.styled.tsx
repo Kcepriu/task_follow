@@ -26,7 +26,7 @@ export const Link = styled(NavLink)`
 
   font-style: normal;
   font-weight: ${(p) => p.theme.fontWeights.bold};
-  font-size: ${(p) => p.theme.fontSizes.s};
+  font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: ${(p) => p.theme.lineHeights.body};
 
   &:hover {

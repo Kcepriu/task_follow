@@ -5,14 +5,15 @@ import { List, Item } from "./ListCards.styled";
 
 interface IProps {
   cards: ICard[];
+  handleFollow: (id: string) => void;
 }
 
-const ListCards: FC<IProps> = ({ cards }) => {
+const ListCards: FC<IProps> = ({ cards, handleFollow }) => {
   return (
     <List>
       {cards.map((card) => (
         <Item key={card.id}>
-          <Card card={card} />
+          <Card card={card} handleFollow={handleFollow} />
         </Item>
       ))}
     </List>

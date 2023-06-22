@@ -15,8 +15,8 @@ export const theme = {
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fontSizes: {
-    xs: "12px",
-    s: "14px",
+    xs: "14px",
+    s: "18px",
     m: "20px",
     l: "40px",
     xl: "120px",
@@ -32,7 +32,7 @@ export const theme = {
   },
   radii: {
     none: "0",
-    small: "8px",
+    small: "10px",
     medium: "14px",
     big: "16px",
     round: "50%",

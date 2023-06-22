@@ -1,17 +1,57 @@
 import { FC } from "react";
 import { WrapCard } from "./Card.styled";
 import { ICard } from "../../types/typsCards";
-import { Ellipse, Line } from "./Card.styled";
+import { numericFormatter } from "react-number-format";
+import {
+  Ellipse,
+  Line,
+  WrapContent,
+  Title,
+  Button,
+  Avatar,
+} from "./Card.styled";
+import no_avatar from "../../images/no_avatar.png";
 interface IProps {
   card: ICard;
+  handleFollow: (id: string) => void;
 }
 
-const Card: FC<IProps> = ({ card }) => {
+const Card: FC<IProps> = ({ card, handleFollow }) => {
   return (
     <WrapCard>
-      {card.user}
       <Line />
+
+      <Avatar
+        src={card.avatar === "" ? no_avatar : card.avatar}
+        alt={card.user}
+        width="64"
+        height="64"
+      />
       <Ellipse />
+      <WrapContent>
+        {/* <Title>{card.user}</Title> */}
+        <Title>
+          {numericFormatter(String(card.tweets), {
+            allowLeadingZeros: true,
+            thousandSeparator: ",",
+          })}
+          <span>tweets</span>
+        </Title>
+        <Title>
+          {numericFormatter(String(card.followers), {
+            allowLeadingZeros: true,
+            thousandSeparator: ",",
+          })}
+          <span>followers</span>
+        </Title>
+      </WrapContent>
+      <Button
+        type="button"
+        className={card.follow ? "follow" : ""}
+        onClick={() => handleFollow(card.id)}
+      >
+        {card.follow ? "Following" : "Follow"}
+      </Button>
     </WrapCard>
   );
 };
