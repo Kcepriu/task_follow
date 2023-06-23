@@ -4,6 +4,12 @@ React Application.
 
 [View Demo](https://famous-panda-95a4bb.netlify.app/)
 
+Goose Track is built using the following tools:
+
+- [TS](https://www.mongodb.com/)
+- [React](https://expressjs.com)
+- [Vite](https://nodejs.org/)
+
 ## Installation
 
 To install Tweets, follow these steps:
