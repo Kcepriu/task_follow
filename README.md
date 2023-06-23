@@ -6,21 +6,21 @@ React Application.
 
 Goose Track is built using the following tools:
 
-- [TS](https://www.mongodb.com/)
-- [React](https://expressjs.com)
-- [Vite](https://nodejs.org/)
+- [TS](https://www.typescriptlang.org)
+- [React](https://reactjs.org)
+- [Vite](https://vitejs.dev)
 
 ## Installation
 
 To install Tweets, follow these steps:
 
-1. Clone the Goose Track repository to your local machine using git@github.com:Kcepriu/task_follow.git
+1. Clone the Goose Track repository to your local machine using `git clone git@github.com:Kcepriu/task_follow.git`
 2. Navigate to the project directory.
 3. Install dependencies using npm install.
 4. Start the server using
 
-- $ npm run start:dev
-- $ npm start
+- $ `npm run start:dev`
+- $ `npm start`
 
 ## Links
 
