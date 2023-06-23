@@ -2,6 +2,7 @@ import { FC } from "react";
 import { WrapCard } from "./Card.styled";
 import { ICard } from "../../types/typsCards";
 import { numericFormatter } from "react-number-format";
+import { useSearchParams } from "react-router-dom";
 import {
   Ellipse,
   Line,
@@ -13,10 +14,13 @@ import {
 import no_avatar from "../../images/no_avatar.png";
 interface IProps {
   card: ICard;
-  handleFollow: (id: string) => void;
+  handleFollow: (id: string, deletedAfterChange: boolean) => void;
 }
 
 const Card: FC<IProps> = ({ card, handleFollow }) => {
+  const [searchParams] = useSearchParams();
+  const status_follow = searchParams.get("status_follow") ?? "showAll";
+
   return (
     <WrapCard>
       <Line />
@@ -46,9 +50,10 @@ const Card: FC<IProps> = ({ card, handleFollow }) => {
         </Title>
       </WrapContent>
       <Button
+        // TODO
         type="button"
         className={card.follow ? "follow" : ""}
-        onClick={() => handleFollow(card.id)}
+        onClick={() => handleFollow(card.id, status_follow !== "showAll")}
       >
         {card.follow ? "Following" : "Follow"}
       </Button>

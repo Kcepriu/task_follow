@@ -2,13 +2,16 @@ import { styled } from "styled-components";
 
 export const Form = styled.form`
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   gap: ${(p) => p.theme.space[2]}px;
   color: ${(p) => p.theme.colors.darkColor};
   font-style: normal;
   font-weight: ${(p) => p.theme.fontWeights.bold};
   font-size: ${(p) => p.theme.fontSizes.s};
   line-height: ${(p) => p.theme.lineHeights.body};
+  @media screen and (min-width: ${(p) => p.theme.breakpoints.table}) {
+    flex-direction: row;
+  }
 `;
 
 export const Label = styled.label`

@@ -18,7 +18,7 @@ const FilterCard: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const status_follow = searchParams.get("status_follow") ?? "showAll";
-  const count_card = searchParams.get("count_card") ?? "6";
+  const count_card = searchParams.get("count_card") ?? "3";
   const user_name = searchParams.get("user_name") ?? "";
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -29,7 +29,7 @@ const FilterCard: FC = () => {
     ).value;
 
     const newSearchParams = {} as ISearchParams;
-    if (count_card !== "6") newSearchParams.count_card = count_card;
+    if (count_card !== "3") newSearchParams.count_card = count_card;
     if (status_follow !== "showAll")
       newSearchParams.status_follow = status_follow;
     if (newUserName) newSearchParams.user_name = newUserName;
@@ -39,7 +39,7 @@ const FilterCard: FC = () => {
   const onChangeStatus = (e: ChangeEvent<HTMLInputElement>) => {
     const newSearchParams = {} as ISearchParams;
 
-    if (count_card !== "6") newSearchParams.count_card = count_card;
+    if (count_card !== "3") newSearchParams.count_card = count_card;
     if (user_name) newSearchParams.user_name = user_name;
     if (e.target.value !== "showAll")
       newSearchParams.status_follow = e.target.value;
@@ -52,7 +52,7 @@ const FilterCard: FC = () => {
     if (user_name) newSearchParams.user_name = user_name;
     if (status_follow !== "showAll")
       newSearchParams.status_follow = status_follow;
-    if (e.target.value !== "6") newSearchParams.count_card = e.target.value;
+    if (e.target.value !== "3") newSearchParams.count_card = e.target.value;
 
     setSearchParams({ ...newSearchParams });
   };
@@ -78,7 +78,7 @@ const FilterCard: FC = () => {
           onChange={onChangeCountCards}
         >
           <option value="1">1</option>
-          <option value="4">4</option>
+          <option value="3">3</option>
           <option value="6">6</option>
           <option value="12">12</option>
           <option value="24">24</option>

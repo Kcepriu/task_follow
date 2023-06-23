@@ -24,8 +24,6 @@ export const WrapCard = styled.div`
 
   background-repeat: no-repeat, no-repeat;
   box-shadow: ${(p) => p.theme.shadows.cardShadow};
-
-  background-color: green;
 `;
 
 export const Ellipse = styled(EllipseImg)`

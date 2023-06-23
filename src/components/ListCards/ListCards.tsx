@@ -5,7 +5,7 @@ import { List, Item } from "./ListCards.styled";
 
 interface IProps {
   cards: ICard[];
-  handleFollow: (id: string) => void;
+  handleFollow: (id: string, deletedAfterChange: boolean) => void;
 }
 
 const ListCards: FC<IProps> = ({ cards, handleFollow }) => {

@@ -17,19 +17,23 @@ const Tweets: FC = () => {
   const [curentPage, setCurentPage] = useState(1);
   //
   const status_follow = searchParams.get("status_follow") ?? "showAll";
-  const count_card = searchParams.get("count_card") ?? "6";
+  const count_card = searchParams.get("count_card") ?? "3";
   const user_name = searchParams.get("user_name") ?? "";
 
-  const handleFollow = async (id: string) => {
+  const handleFollow = async (id: string, deletedAfterChange: boolean) => {
     setShowLoad(true);
     try {
       const updatedCard = await toogleFollow(id);
       if (!updatedCard) return;
-      setCards((prev) => {
-        const index = prev.findIndex((card) => card.id === updatedCard.id);
-        if (index !== -1) prev.splice(index, 1, updatedCard);
-        return [...prev];
-      });
+      if (deletedAfterChange) {
+        setCards((prev) => prev.filter((card) => card.id !== updatedCard.id));
+      } else {
+        setCards((prev) => {
+          const index = prev.findIndex((card) => card.id === updatedCard.id);
+          if (index !== -1) prev.splice(index, 1, updatedCard);
+          return [...prev];
+        });
+      }
     } catch {
       showErrorMessage("Error update card");
     } finally {

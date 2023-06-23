@@ -33,7 +33,6 @@ export const getCards = async (
   controller: AbortController,
   params: IParams
 ): Promise<ICard[]> => {
-  console.log(getAxiosParams(params));
   const responsData = await axios.get("/follow", {
     baseURL: URL_API,
     signal: controller.signal,
